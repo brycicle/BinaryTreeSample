@@ -97,7 +97,7 @@ public class AccountServiceImpl implements AccountService {
                 downlines.add(repository.findAccountByAccountIdEquals(current.getRightDownlineId()).orElse(null));
             } else {
                 account.setUplineId(upline.getAccountId());
-                repository.save(account);
+                account = repository.save(account);
                 repository.save(upline);
             }
         }
