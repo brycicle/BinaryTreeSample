@@ -1,0 +1,17 @@
+# Server Configuration
+server:
+  port: 8000
+spring:
+ application:
+   name: sample-service
+# JDBC Configuration
+ datasource:
+  url: jdbc:mysql://localhost:3306/test
+  username: root
+  password: Bryce@27923
+  hikari:
+   max-lifetime: 30000
+ jpa:
+   hibernate:
+     ddl-auto: update
+   show-sql: true
