@@ -8,6 +8,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/account")
 @RequiredArgsConstructor
@@ -23,5 +25,10 @@ public class AccountController {
     @PatchMapping("/{id}")
     public ResponseEntity<AccountResponse> activateAccount(@PathVariable final Long id) {
         return ResponseEntity.ok(accountService.activateAccount(id));
+    }
+
+    @GetMapping("/downlines/{id}")
+    public ResponseEntity<List<AccountResponse>> getDownlines(@PathVariable final Long id) {
+        return ResponseEntity.ok(accountService.getDownlines(id));
     }
 }
